@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:form>    
+    <f:view contentType="text/html">
+        <h:head>
+            <title>Emprestimos</title>
+        </h:head>
+        <h:body>
+            <h:commandButton id="submit" value="Home  "
+                             action="#{homeBean.Home}" />
+            <h:commandButton id="submit2" value="Cadastro" 
+                             action="#{homeBean.Cadastro}" />
+            <h:commandButton id="submit3" value="Locação"
+                             action="#{homeBean.Locacao}" />
+            <h:commandButton id="submit4" value="Busca"
+                             action="#{homeBean.Busca}" />
+            <br />
+            <br />
+            Emprestimos Cadastrados
+            <br />
+            <br />
+            <h:dataTable value="#{emprestimoBean.emprestimos}" var="emprestimo"
+                         styleClass="order-table"
+                         headerClass="order-table-header"
+                         rowClasses="order-table-odd-row,order-table-even-row"
+                         >
+                <h:column>
+                    <f:facet name="header">
+                        Nome do livro
+                    </f:facet>
+                    #{emprestimo.exemplar.livro.titulo}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        &nbsp;&nbsp;Nome do Cliente
+                    </f:facet>
+                    &nbsp;&nbsp;#{emprestimo.cliente.nome}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        &nbsp;&nbsp;Data do Empréstimo
+                    </f:facet>
+                    &nbsp;&nbsp;#{emprestimo.dataEmprestimo}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        &nbsp;&nbsp;Data para devolução
+                    </f:facet>
+                   &nbsp;&nbsp;#{emprestimo.dataParaDevolucao}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        &nbsp;&nbsp;Data que foi devolvido
+                    </f:facet>
+                    &nbsp;&nbsp;#{emprestimo.dataRetorno}
+                </h:column>
+                 <h:column>
+                    <h:commandLink value="Devolver" action="#{emprestimoBean.DevolverExemplar(emprestimo)}"/>
+                </h:column>
+            </h:dataTable>
+        </h:body>
+    </f:view>
+</h:form>
+</html>

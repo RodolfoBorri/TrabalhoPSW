@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:form>    
+    <f:view contentType="text/html">
+        <h:head>
+            <title>Livros cadastrados</title>
+        </h:head>
+        <h:body>
+            <h:commandButton id="submit" value="Home  "
+                             action="#{homeBean.Home}" />
+            <h:commandButton id="submit2" value="Cadastro" 
+                             action="#{homeBean.Cadastro}" />
+            <h:commandButton id="submit3" value="Locação"
+                             action="#{homeBean.Locacao}" />
+            <h:commandButton id="submit4" value="Busca"
+                             action="#{homeBean.Busca}" />
+            <br />
+            <br />
+            Livros Cadastrados
+            <br />
+            <br />          
+            <h:dataTable value="#{livroBean.livros}" var="livro"
+                         styleClass="order-table"
+                         headerClass="order-table-header"
+                         rowClasses="order-table-odd-row,order-table-even-row"
+                         >
+                <h:column>
+                    <f:facet name="header">
+                        Título
+                    </f:facet>
+                    #{livro.titulo}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        Diretor
+                    </f:facet>
+                    #{livro.diretor}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        Editora
+                    </f:facet>
+                    #{livro.editora}
+                </h:column>
+                <h:column>
+                    <div contenteditable = "true">
+                    <f:facet name="header">
+                        Ano de Publicação
+                    </f:facet>
+                    #{livro.anoPublicacao}
+                    </div>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="Alterar" action="#{livroBean.alterarLivro(livro)}"/>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="Excluir" action="#{livroBean.excluirLivro(livro)}"/>
+                </h:column>
+            </h:dataTable>
+        </h:body>
+    </f:view>
+</h:form>    
+</html>

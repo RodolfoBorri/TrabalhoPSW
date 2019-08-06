@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Webiblioteca</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:commandButton id="submit" value="Home  "
+                             action="#{homeBean.Home}" />
+            <h:commandButton id="submit2" value="Cadastro" 
+                             action="#{homeBean.Cadastro}" />
+            <h:commandButton id="submit3" value="Locação"
+                             action="#{homeBean.Locacao}" />
+            <h:commandButton id="submit4" value="Busca"
+                             action="#{homeBean.Busca}" />
+            
+            <br />
+            <br />            
+            Alterar Cliente
+            <br />  
+            <br />  
+            <h:outputText value="Nome" />
+            <br />
+            <h:inputText id="nome" title="Nome"
+                         value="#{clienteBean.cliente.nome}" />
+            <br />
+            <br />
+            <h:outputText value="Idade" />
+            <br />
+            <h:inputText id="idade" title="Idade"
+                         value="#{clienteBean.cliente.idade}" />
+            <br />
+            <br />
+            <h:outputText value="CPF" />
+            <br />
+            <h:inputText id="cpf" title="CPF"
+                         value="#{clienteBean.cliente.cpf}" />
+            <br />
+            <br />
+            <h:outputText value="Endereco" />
+            <br />
+            <h:inputText id="endereco" title="Endereco"
+                         value="#{clienteBean.cliente.endereco}" />       
+            <br />
+            <br />
+            <h:commandButton id="submit5" value="Salvar"
+                             action="#{clienteBean.salvarCliente}" />
+            <h:commandButton id="submit6" value="Cancelar"
+                             action="#{clienteBean.cancelarAlterarCliente}" />
+        </h:form>
+    </h:body>
+</html>
