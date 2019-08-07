@@ -1,0 +1,132 @@
+.divQuizFillBlank {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.row {
+    min-height: 300px;
+    position: relative;
+    text-align: center;
+}
+
+.column_center {
+  display: inline-block;
+  padding: 200px;
+}
+
+.padTop{
+    padding-top: 20px;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+#button1Spec {
+    position:absolute;
+    transition: .5s ease;
+    top: 100px;
+    left: 400px;
+}
+
+#button2Spec {
+    position:absolute;
+    transition: .5s ease;
+    top: 205px;
+    left: 400px;
+}
+
+.navbar-brand{
+	padding-top: 12px;
+}
+
+.navbar-header{
+	width: 100%;
+}
+
+.right-side-button{
+  float:right;
+}
+
+.nav-item{
+	padding-left: 30px;
+
+}
+
+.navbar-nav{
+	padding-left: 465px; 
+
+} 	
+
+.panel-default{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.centerForm{
+	padding-left: 400px;
+	padding-top: 150px; 
+}
+
+.centerFormCadFilme{
+	margin: 0 auto;
+}
+
+.btnPad{
+	margin-bottom: 18px;
+}
+
+.centerBusca{
+	padding-left: 470px;
+	padding-top: 12px;	
+}
+
+#excluirBtn {
+  background: red;
+}
+
+.body{
+ background-color: #f4efeb;
+}
+.modal-backdrop
+{
+ opacity:0.5;
+}
+
+.navTeste{
+    background-color: #008aa5;
+    border-color: #000000;
+}
+
+.button {
+  background-color: white;
+  border: none;
+  color: white;
+  padding: 5px 210px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  margin: 70px 2px;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius:5px;
+}
+
+.button1 {
+  background-color: white;
+  color: black; 
+  height: 70px;
+  border: 2px solid  #008aa5;
+}
+
+.button1:hover {
+  background-color:  #008aa5;
+  color:  white;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: white;
+}
