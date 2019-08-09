@@ -1,15 +1,3 @@
-.divQuizFillBlank {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-}
-
-.row {
-    min-height: 300px;
-    position: relative;
-    text-align: center;
-}
-
 .column_center {
   display: inline-block;
   padding: 200px;
@@ -17,10 +5,6 @@
 
 .padTop{
     padding-top: 20px;
-}
-
-.wrapper {
-    text-align: center;
 }
 
 #button1Spec {
@@ -38,11 +22,11 @@
 }
 
 .navbar-brand{
-	padding-top: 12px;
+    padding-top: 12px;
 }
 
 .navbar-header{
-	width: 100%;
+    width: 100%;
 }
 
 .right-side-button{
@@ -129,4 +113,8 @@
 
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
    background-color: white;
+}
+
+.customHeader{
+    background-color: #e1e6e2;
 }

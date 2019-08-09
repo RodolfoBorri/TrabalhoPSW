@@ -4,50 +4,83 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
         <title>Webiblioteca</title>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <h:outputStylesheet library ="css" name ="estilos.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>    
     </h:head>
-    <h:body>
-        <h:form>
-            <h:commandButton id="submit" value="Home  "
-                             action="#{homeBean.Home}" />
-            <h:commandButton id="submit2" value="Cadastro" 
-                             action="#{homeBean.Cadastro}" />
-            <h:commandButton id="submit3" value="Locação"
-                             action="#{homeBean.Locacao}" />
-            <h:commandButton id="submit4" value="Busca"
-                             action="#{homeBean.Busca}" />
+     <body class = "body">
+        <h:form>       
+            <nav class="navbar navbar-expand-lg navTeste navbar-light">
+
+            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item active">
+                        <h:commandLink class="nav-link" id="submit1" value="Home"
+                                             action="#{homeBean.Home}"></h:commandLink>
+                    </li>
+                    <li class="nav-item">
+                        <h:commandLink class="nav-link" id="submit2" value="Cadastro" 
+                                             action="#{homeBean.Cadastro}"></h:commandLink>
+                    </li>
+
+                    <li class="nav-item">
+                        <h:commandLink class="nav-link" id="submit3" value="Locação"
+                                             action="#{homeBean.Locacao}"></h:commandLink>
+                    </li>
+
+                    <li class="nav-item">
+                        <h:commandLink class="nav-link" id="submit4" value="Busca"
+                                           action="#{homeBean.Busca}"></h:commandLink>
+                    </li>
+                </ul>
+            </div>
+        </nav>  
             
-            <br />
-            <br />            
-            Cadastro de Clientes
-            <br />  
-            <br />  
-            <h:outputText value="Nome" />
-            <br />
-            <h:inputText id="nome" title="Nome"
-                         value="#{clienteBean.nome}" />
-            <br />
-            <br />
-            <h:outputText value="Idade" />
-            <br />
-            <h:inputText id="idade" title="Idade"
-                         value="#{clienteBean.idade}" />
-            <br />
-            <br />
-            <h:outputText value="CPF" />
-            <br />
-            <h:inputText id="cpf" title="CPF"
-                         value="#{clienteBean.cpf}" />
-            <br />
-            <br />
-            <h:outputText value="Endereco" />
-            <br />
-            <h:inputText id="endereco" title="Endereco"
-                         value="#{clienteBean.endereco}" />       
-            <br />
-            <br />
-            <h:commandButton id="submit5" value="Cadastrar"
-                             action="#{clienteBean.cadastrar}" />
+        </h:form>  
+        <h:form class="form-horizontal">
+                 <h1 style="padding-left: 17px;">Cadastro de Clientes</h1>		
+            <div class="panel-boddy">
+                <div class="form-group" style="position: absolute;top: 150px;right: 1060px; ">
+                    <label for="nome" class="control-label" >Nome:</label>
+                    <div style ="height: 20px; width: 300px;">
+                        <h:inputText class = "form-control" id="nome" title="Nome "
+                                     value="#{clienteBean.nome}" />
+                    </div>
+                </div>
+                 
+                <div class="form-group" style="position: absolute;top: 210px;right: 1060px; ">
+                    <label for="idade" class="control-label" >Idade:</label>
+                    <div style ="height: 20px; width: 300px;">            
+                        <h:inputText class = "form-control" id="idade" title="Idade"
+                                     value="#{clienteBean.idade}" />
+                    </div>
+                </div>                   
+                 
+                <div class="form-group" style="position: absolute;top: 270px;right: 1060px; ">
+                    <label for="cpf" class="control-label" >CPF:</label>
+                    <div style ="height: 20px; width: 300px;">
+                        <h:inputText class = "form-control" id="cpf" title="CPF"
+                                     value="#{clienteBean.cpf}" />
+                    </div>
+                </div>
+                <div class="form-group" style="position: absolute;top: 340px;right: 1060px; ">
+                    <label for="endereco" class="control-label" >Endereço:</label>
+                    <div style ="height: 20px; width: 300px;">                       
+                        <h:inputText class = "form-control" id="endereco" title="Endereco"
+                                    value="#{clienteBean.endereco}" />       
+                    </div>
+                </div>
+            </div>
+            <div style="position: absolute;top: 420px;right: 1257px;">
+                <h:commandButton class="btn btn-primary" id="submit5" value="Cadastrar"
+                                action="#{clienteBean.cadastrar}" />
+            </div>
         </h:form>
-    </h:body>
+    </body>
 </html>

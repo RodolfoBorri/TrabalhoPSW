@@ -4,65 +4,91 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:form>    
-    <f:view contentType="text/html">
-        <h:head>
-            <title>Emprestimos</title>
-        </h:head>
-        <h:body>
-            <h:commandButton id="submit" value="Home  "
-                             action="#{homeBean.Home}" />
-            <h:commandButton id="submit2" value="Cadastro" 
-                             action="#{homeBean.Cadastro}" />
-            <h:commandButton id="submit3" value="Locação"
-                             action="#{homeBean.Locacao}" />
-            <h:commandButton id="submit4" value="Busca"
-                             action="#{homeBean.Busca}" />
-            <br />
-            <br />
-            Emprestimos Cadastrados
-            <br />
-            <br />
+<h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+        <title>Webiblioteca</title>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <h:outputStylesheet library ="css" name ="estilos.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </h:head>
+    
+    <body class = "body">
+        <h:form>       
+            <nav class="navbar navbar-expand-lg navTeste navbar-light">
+                
+            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item active">
+                        <h:commandLink class="nav-link" id="submit1" value="Home"
+                                             action="#{homeBean.Home}"></h:commandLink>
+                    </li>
+                    <li class="nav-item">
+                        <h:commandLink class="nav-link" id="submit2" value="Cadastro" 
+                                             action="#{homeBean.Cadastro}"></h:commandLink>
+                    </li>
+
+                    <li class="nav-item">
+                        <h:commandLink class="nav-link" id="submit3" value="Locação"
+                                             action="#{homeBean.Locacao}"></h:commandLink>
+                    </li>
+
+                    <li class="nav-item">
+                        <h:commandLink class="nav-link" id="submit4" value="Busca"
+                                           action="#{homeBean.Busca}"></h:commandLink>
+                    </li>
+                </ul>
+            </div>
+        </nav>  
+        </h:form>  
+    <div class = "container">
+        <h2 style="text-align:center; padding-right:75px;">Empréstimos</h2>
+        <br />
+        <h:form>
             <h:dataTable value="#{emprestimoBean.emprestimos}" var="emprestimo"
-                         styleClass="order-table"
+                         styleClass="order-table"                         
+                         class ="table table-striped"
                          headerClass="order-table-header"
-                         rowClasses="order-table-odd-row,order-table-even-row"
+                         rowClasses="order-table-even-row, order-table-odd-row"
                          >
-                <h:column>
+                <h:column headerClass="customHeader">
                     <f:facet name="header">
                         Nome do livro
                     </f:facet>
                     #{emprestimo.exemplar.livro.titulo}
                 </h:column>
-                <h:column>
+                <h:column headerClass="customHeader">
                     <f:facet name="header">
-                        &nbsp;&nbsp;Nome do Cliente
+                        Nome do Cliente
                     </f:facet>
-                    &nbsp;&nbsp;#{emprestimo.cliente.nome}
+                    #{emprestimo.cliente.nome}
                 </h:column>
-                <h:column>
+                <h:column headerClass="customHeader">
                     <f:facet name="header">
-                        &nbsp;&nbsp;Data do Empréstimo
+                        Data do Empréstimo
                     </f:facet>
-                    &nbsp;&nbsp;#{emprestimo.dataEmprestimo}
+                    #{emprestimo.dataEmprestimo}
                 </h:column>
-                <h:column>
+                <h:column headerClass="customHeader">
                     <f:facet name="header">
-                        &nbsp;&nbsp;Data para devolução
+                        Data para devolução
                     </f:facet>
-                   &nbsp;&nbsp;#{emprestimo.dataParaDevolucao}
+                   #{emprestimo.dataParaDevolucao}
                 </h:column>
-                <h:column>
+                <h:column headerClass="customHeader">
                     <f:facet name="header">
-                        &nbsp;&nbsp;Data que foi devolvido
+                        Data que foi devolvido
                     </f:facet>
-                    &nbsp;&nbsp;#{emprestimo.dataRetorno}
+                    #{emprestimo.dataRetorno}
                 </h:column>
-                 <h:column>
-                    <h:commandLink value="Devolver" action="#{emprestimoBean.DevolverExemplar(emprestimo)}"/>
+                 <h:column headerClass="customHeader">
+                    <h:commandLink class="btn btn-primary" value="Devolver" action="#{emprestimoBean.DevolverExemplar(emprestimo)}"/>
                 </h:column>
             </h:dataTable>
-        </h:body>
-    </f:view>
-</h:form>
+        </h:form>
+    </div>
+    </body>
 </html>

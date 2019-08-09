@@ -3,63 +3,92 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:form>    
-    <f:view contentType="text/html">
-        <h:head>
-            <title>Cadastro de Clientes</title>
-        </h:head>
-        <h:body>
-            <h:commandButton id="submit" value="Home  "
-                             action="#{homeBean.Home}" />
-            <h:commandButton id="submit2" value="Cadastro" 
-                             action="#{homeBean.Cadastro}" />
-            <h:commandButton id="submit3" value="Locação"
-                             action="#{homeBean.Locacao}" />
-            <h:commandButton id="submit4" value="Busca"
-                             action="#{homeBean.Busca}" />
-            <br />
-            <br />
-            Clientes Cadastrados
-            <br />
-            <br />
+      xmlns:ui="http://java.sun.com/jsf/facelets">    
+
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+        <title>Webiblioteca</title>
+        <meta charset="utf-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <h:outputStylesheet library ="css" name ="estilos.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </h:head>
+    
+    <body class = "body">
+        <h:form>       
+            <nav class="navbar navbar-expand-lg navTeste navbar-light">
+                
+            <div class="collapse navbar-collapse navbar-header" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item active">
+                        <h:commandLink class="nav-link" id="submit1" value="Home"
+                                             action="#{homeBean.Home}"></h:commandLink>
+                    </li>
+                    <li class="nav-item">
+                        <h:commandLink class="nav-link" id="submit2" value="Cadastro" 
+                                             action="#{homeBean.Cadastro}"></h:commandLink>
+                    </li>
+
+                    <li class="nav-item">
+                        <h:commandLink class="nav-link" id="submit3" value="Locação"
+                                             action="#{homeBean.Locacao}"></h:commandLink>
+                    </li>
+
+                    <li class="nav-item">
+                        <h:commandLink class="nav-link" id="submit4" value="Busca"
+                                           action="#{homeBean.Busca}"></h:commandLink>
+                    </li>
+                </ul>
+            </div>
+        </nav>  
+        </h:form>  
+    
+    <div class = "container">
+        <h2 style="text-align:center; padding-right:75px;">Clientes</h2>
+        <br />
+        <h:form>
             <h:dataTable value="#{clienteBean.clientes}" var="cliente"
                          styleClass="order-table"
+                         class ="table table-striped"
                          headerClass="order-table-header"
                          rowClasses="order-table-odd-row,order-table-even-row"
                          >
-                <h:column>
+                <h:column headerClass="customHeader">
                     <f:facet name="header">
                         Nome
                     </f:facet>
                     #{cliente.nome}
                 </h:column>
-                <h:column>
+                <h:column headerClass="customHeader">
                     <f:facet name="header">
                         Idade
                     </f:facet>
                     #{cliente.idade}
                 </h:column>
-                <h:column>
+                <h:column headerClass="customHeader">
                     <f:facet name="header">
                         CPF
                     </f:facet>
                     #{cliente.cpf}
                 </h:column>
-                <h:column>
+                <h:column headerClass="customHeader">
                     <f:facet name="header">
                         Endereco
                     </f:facet>
                     #{cliente.endereco}
                 </h:column>
-                 <h:column>
-                    <h:commandLink value="Alterar" action="#{clienteBean.alterarCliente(cliente)}"/>
+                <h:column headerClass="customHeader">
+                    <h:commandLink class="btn btn-primary" style ="float: right;" value="Alterar" action="#{clienteBean.alterarCliente(cliente)}"/>
                 </h:column>
-                <h:column>
-                    <h:commandLink value="Excluir" action="#{clienteBean.excluirCliente(cliente)}"/>
+                <h:column headerClass="customHeader">
+                    <h:commandLink class = "btn btn-danger" value="Excluir" action="#{clienteBean.excluirCliente(cliente)}"/>
                 </h:column>
             </h:dataTable>
-        </h:body>
-    </f:view>
-</h:form>
+        </h:form>
+    </div>
+    </body>
+        
 </html>
