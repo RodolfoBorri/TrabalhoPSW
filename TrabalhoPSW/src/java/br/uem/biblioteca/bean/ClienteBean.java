@@ -10,6 +10,7 @@ import java.util.List;
 @Named(value = "clienteBean")
 @SessionScoped
 public class ClienteBean implements Serializable {
+
     Cliente cliente = new Cliente();
     int indexCliente;
 
@@ -17,7 +18,7 @@ public class ClienteBean implements Serializable {
     private int idade;
     private String cpf;
     private String endereco;
-    
+
     public ClienteBean() {
     }
 
@@ -55,16 +56,15 @@ public class ClienteBean implements Serializable {
 
     public String cadastrar() {
         Cliente clienteEncontrado = ClienteController.BuscarClientePorCpf(cpf);
-        
-        if(clienteEncontrado != null){
+
+        if (clienteEncontrado != null) {
             return "/HTML/clienteExistente";
-        }
-        else{
-            ClienteController.salvarCliente(new Cliente(nome, idade, cpf, endereco));    
+        } else {
+            ClienteController.salvarCliente(new Cliente(nome, idade, cpf, endereco));
             return "/HTML/cadastroSucesso";
         }
     }
-    
+
     public Cliente getCliente() {
         return cliente;
     }
@@ -72,35 +72,38 @@ public class ClienteBean implements Serializable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    
-     public String alterarCliente(Cliente cliente){
+
+    public String alterarCliente(Cliente cliente) {
         this.cliente = cliente;
-        
+
         List<Cliente> clientes;
         clientes = ClienteController.listarClientes();
-        
-        if(clientes.contains(cliente)) this.indexCliente = clientes.indexOf(cliente);
+
+        if (clientes.contains(cliente)) {
+            this.indexCliente = clientes.indexOf(cliente);
+        }
         return "alterarCliente";
     }
-    
-    public String salvarCliente(){
+
+    public String salvarCliente() {
         Cliente clienteAlterado = new Cliente(cliente.getNome(), cliente.getIdade(), cliente.getCpf(), cliente.getEndereco());
         ClienteController.alterarCliente(indexCliente, clienteAlterado);
         return "/HTML/listarClientes";
     }
-    
-    public String cancelarAlterarCliente(){
+
+    public String cancelarAlterarCliente() {
         return "/HTML/listarClientes";
     }
-    
-    public String excluirCliente(Cliente cliente){
-        if(!new EmprestimoBean().VerificarClientePossuiEmprestimo(cliente)){
+
+    public String excluirCliente(Cliente cliente) {
+        if (!new EmprestimoBean().VerificarClientePossuiEmprestimo(cliente)) {
             ClienteController.removerCliente(cliente);
             return "";
+        } else {
+            return "/HTML/erro";
         }
-        else return "/HTML/erro";
     }
-    
+
     public List<Cliente> getClientes() {
         return ClienteController.listarClientes();
     }

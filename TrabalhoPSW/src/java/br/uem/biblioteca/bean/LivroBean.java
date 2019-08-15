@@ -19,7 +19,7 @@ public class LivroBean implements Serializable {
     int indexLivro;
     
     private String titulo;
-    private String diretor;
+    private String autor;
     private String editora;
     private String anoPublicacao; 
     
@@ -35,12 +35,12 @@ public class LivroBean implements Serializable {
         this.titulo = titulo;
     }
 
-    public String getDiretor() {
-        return diretor;
+    public String getAutor() {
+        return autor;
     }
 
-    public void setDiretor(String diretor) {
-        this.diretor = diretor;
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
     public String getEditora() {
@@ -63,7 +63,7 @@ public class LivroBean implements Serializable {
         Livro livroEncontrado = LivroController.BuscarLivroPorTitulo(titulo);
         
         if(livroEncontrado == null){
-            Livro livroNovo = new Livro(titulo, diretor, editora, anoPublicacao);
+            Livro livroNovo = new Livro(titulo, autor, editora, anoPublicacao);
             LivroController.salvarLivro(livroNovo);
             LivroController.salvarExemplar(new Exemplar(livroNovo, false));
             return "/HTML/cadastroSucesso";
@@ -94,7 +94,7 @@ public class LivroBean implements Serializable {
     }
     
     public String salvarLivro(){
-        Livro livroAlterado = new Livro(livro.getTitulo(), livro.getDiretor(), livro.getEditora(), livro.getAnoPublicacao());
+        Livro livroAlterado = new Livro(livro.getTitulo(), livro.getAutor(), livro.getEditora(), livro.getAnoPublicacao());
         LivroController.alterarLivro(indexLivro, livroAlterado);
         return "/HTML/listarLivros";
     }

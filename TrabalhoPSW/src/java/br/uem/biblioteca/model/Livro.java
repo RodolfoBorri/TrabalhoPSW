@@ -2,13 +2,13 @@ package br.uem.biblioteca.model;
 
 public class Livro {
     private String titulo;
-    private String diretor;
+    private String autor;
     private String editora;
     private String anoPublicacao;    
 
-    public Livro(String titulo, String diretor, String editora, String anoPublicacao) {
+    public Livro(String titulo, String autor, String editora, String anoPublicacao) {
         this.titulo = titulo;
-        this.diretor = diretor;
+        this.autor = autor;
         this.editora = editora;
         this.anoPublicacao = anoPublicacao;
     }
@@ -24,12 +24,12 @@ public class Livro {
         this.titulo = titulo;
     }
 
-    public String getDiretor() {
-        return diretor;
+    public String getAutor() {
+        return autor;
     }
 
-    public void setDiretor(String diretor) {
-        this.diretor = diretor;
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
     public String getEditora() {

@@ -35,7 +35,7 @@ public class LivroDAO {
     
     public void AlterarLivros(int index, Livro livro){
         livros.get(index).setTitulo(livro.getTitulo());
-        livros.get(index).setDiretor(livro.getDiretor());
+        livros.get(index).setAutor(livro.getAutor());
         livros.get(index).setEditora(livro.getEditora());
         livros.get(index).setAnoPublicacao(livro.getAnoPublicacao());
     }
