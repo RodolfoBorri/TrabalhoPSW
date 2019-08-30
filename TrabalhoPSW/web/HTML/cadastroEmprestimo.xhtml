@@ -11,7 +11,8 @@
         <h:outputStylesheet library ="css" name ="estilos.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>   
+        <h:outputScript library="js" name = "javascript.js"/>
     </h:head>
      <body class = "body">
         <h:form>       
@@ -50,7 +51,7 @@
                     <label for="cpf" class="control-label" >CPF: </label>
                     <div style ="height: 20px; width: 300px;">
                             <h:inputText class = "form-control" id="cpf" title="Digite o CPF do cliente"
-                                        value="#{emprestimoBean.cpf}" />
+                                        value="#{emprestimoBean.cpf}" onkeypress = "this.value = formataCPF(event)"/>
                     </div>
                 </div>
                 
@@ -66,7 +67,7 @@
                     <label for="dataParaDevolucao" class="control-label" >Data para devolução: </label>
                     <div style ="height: 20px; width: 300px;">
                             <h:inputText class = "form-control" id="dataParaDevolucao" title="Data para devolução"
-                                        value="#{emprestimoBean.dataParaDevolucao}" />
+                                        value="#{emprestimoBean.dataParaDevolucao}" onkeypress = "this.value = formataData(event)"/>
                     </div>
                 </div>
             </div>

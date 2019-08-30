@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></link>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>    
+        <h:outputScript library="js" name = "javascript.js"/>
     </h:head>
      <body class = "body">
         <h:form>       
@@ -58,7 +59,7 @@
                     <label for="idade" class="control-label" >Idade:</label>
                     <div style ="height: 20px; width: 300px;">            
                         <h:inputText class = "form-control" id="idade" title="Idade"
-                                     value="#{clienteBean.idade}" />
+                                     value="#{clienteBean.idade}" onchange="validarIdade(this.value)"/>
                     </div>
                 </div>                   
                  
@@ -66,7 +67,7 @@
                     <label for="cpf" class="control-label" >CPF:</label>
                     <div style ="height: 20px; width: 300px;">
                         <h:inputText class = "form-control" id="cpf" title="CPF"
-                                     value="#{clienteBean.cpf}" />
+                                     value="#{clienteBean.cpf}" onkeypress = "this.value = formataCPF(event)"/>
                     </div>
                 </div>
                 <div class="form-group" style="position: absolute;top: 340px;right: 1060px; ">
